@@ -41,9 +41,30 @@ SELECT * FROM filmes WHERE custo > (SELECT AVG(custo) FROM filmes);
 SELECT * FROM filmes WHERE nota_especialistas > (SELECT AVG(nota_especialistas) FROM filmes);
 
 #ans11
-SELECT * FROM filmes WHERE nota_audiencia > (SELECT AVG(nota_audiencia) FROM filmes);
-
-#ans12
 SELECT * FROM filmes WHERE nota_audiencia > (SELECT AVG(nota_audiencia) FROM filmes) ORDER BY nota_audiencia ASC;
 
+#ans12
+SELECT DISTINCT genero FROM filmes;
+
 #ans13
+SELECT genero, COUNT(*) FROM filmes GROUP BY genero ORDER BY COUNT(*) DESC;
+
+#ans14
+SELECT genero, AVG(custo) FROM filmes Group By genero ORDER BY AVG(custo) DESC;
+
+#ans15
+SELECT genero, AVG(nota_audiencia) FROM filmes Group By genero ORDER BY AVG(nota_audiencia) DESC;
+
+#ans16
+SELECT genero, AVG(nota_especialistas) FROM filmes Group By genero ORDER BY AVG(nota_especialistas) DESC;
+
+#ans17,18
+SELECT ano, COUNT(*) FROM filmes Group By ano ORDER BY COUNT(*) DESC;
+
+#ans19
+SELECT genero, ano, COUNT(*) FROM filmes Group By genero, ano ORDER BY COUNT(*) DESC;
+
+#ans20
+select filme, nota_audiencia, nota_especialistas, SUM(nota_audiencia) + SUM(nota_especialistas) 
+	from filmes group by filme, nota_audiencia, nota_especialistas
+		ORDER BY SUM(nota_audiencia) + SUM(nota_especialistas) DESC;
