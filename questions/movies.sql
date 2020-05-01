@@ -35,7 +35,7 @@ SELECT AVG(custo) FROM filmes;
 
 #q9: movies more expensive than mean value
 #ans9
-SELECT * FROM filmes WHERE custo > (SELECT AVG(custo) FROM filmes);
+SELECT count(*) FROM filmes WHERE custo > (SELECT AVG(custo) FROM filmes);
 
 #ans10
 SELECT * FROM filmes WHERE nota_especialistas > (SELECT AVG(nota_especialistas) FROM filmes);
